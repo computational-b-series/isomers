@@ -1,4 +1,4 @@
-# Find isomeric trees
+# Isomeric trees and the order of Runge--Kutta methods (by Butcher, Podhaisky, Arxiv 2021)
 
 Isomers.m computes with Mathematica in about 5 seconds the isomeric classes up to order p=12.
 
