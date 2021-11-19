@@ -1,4 +1,8 @@
-const pmax = 8
+#=
+Computes the isomeric classes up to order 10 in about one second
+The output for p<=7 is used in the preprint in a table.
+=#
+const pmax = 10
 
 struct S
     p::Int
@@ -107,7 +111,7 @@ open("trees.tex","w") do io
     for (k,t) in enumerate(trees)
         println(io, "\\expandafter\\newcommand\\csname Tree$k\\endcsname{$(tex(t))}")
     end 
-    for p in 1:4
+    for p in 1:5
         for v in 0:p-1
            W = "child{node[scale=1.2,fill=white]{}}"^v
            B = "child{node{}}"^(p-1-v)
@@ -117,7 +121,7 @@ open("trees.tex","w") do io
 end
 println("trees.tex has been written")
 
-for p in 5:7
+for p in 5:10
     println("\\subsection{Isomers of Order $p}")
     findIsomers(allTrees[p])
 end
